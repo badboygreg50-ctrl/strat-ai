@@ -3,32 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Strat AI - Chat Assistant</title>
+    <title>Strat AI - Smart Chat with Images</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="chat-container">
-        <div class="chat-header">
-            <h1>Strat AI</h1>
-            <p>Your smart AI assistant</p>
-        </div>
-        
-        <div class="chat-messages" id="chatMessages">
-            <div class="message bot-message">
-                <p>Hello! I'm Strat AI. How can I help you today?</p>
+    <div class="app-container">
+        <!-- Header -->
+        <div class="app-header">
+            <div class="header-content">
+                <h1>🤖 Strat AI</h1>
+                <p>Ask me anything - text or images!</p>
+            </div>
+            <div class="header-buttons">
+                <button id="darkModeToggle" class="header-btn" title="Toggle Dark Mode">🌙</button>
+                <button id="clearChatBtn" class="header-btn" title="Clear Chat">🗑️</button>
             </div>
         </div>
-        
-        <div class="chat-input-container">
-            <input 
-                type="text" 
-                id="userInput" 
-                placeholder="Type your message..." 
-                class="chat-input"
-                autocomplete="off"
-            >
-            <button id="sendBtn" class="send-button">Send</button>
+
+        <!-- Chat Container -->
+        <div class="chat-wrapper">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <p>👋 Hey! I'm Strat AI. You can:</p>
+                        <ul>
+                            <li>📝 Ask me questions</li>
+                            <li>🖼️ Upload and analyze images</li>
+                            <li>💬 Have conversations with context</li>
+                            <li>🚀 Get instant answers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <!-- Input Area -->
+        <div class="input-area">
+            <!-- Image Preview -->
+            <div id="imagePreview" class="image-preview-container" style="display: none;">
+                <div class="preview-item">
+                    <img id="previewImg" src="" alt="preview">
+                    <button id="removeImageBtn" class="remove-btn">✕</button>
+                </div>
+                <p id="imageName" class="image-name"></p>
+            </div>
+
+            <!-- Input Controls -->
+            <div class="input-controls">
+                <label class="file-input-label">
+                    <input 
+                        type="file" 
+                        id="imageInput" 
+                        accept="image/*" 
+                        style="display: none;"
+                    >
+                    <span class="file-button">🖼️ Image</span>
+                </label>
+                
+                <input 
+                    type="text" 
+                    id="userInput" 
+                    placeholder="Type message or ask about your image..." 
+                    class="chat-input"
+                    autocomplete="off"
+                >
+                
+                <button id="sendBtn" class="send-button">
+                    <span>Send</span>
+                    <span class="send-icon">➤</span>
+                </button>
+            </div>
+
+            <!-- Drag & Drop Area -->
+            <div id="dropZone" class="drop-zone">
+                <p>Drag images here to upload</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
     </div>
 
     <script src="chatbot.js"></script>
