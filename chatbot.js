@@ -137,15 +137,17 @@ class StratAI {
             return this.getRandomResponse(jokes);
         }
 
-        // Math help
-        if (lowerMessage.includes('math') || lowerMessage.includes('calculate')) {
-            const responses = [
-                "I'd be happy to help with math! Feel free to ask me any math questions, and I'll do my best to help you understand.",
-                "Math is my thing! What math problem can I help you solve?",
-                "Got a math question? I'm here to break it down for you! 📐",
-                "Math help coming right up! What do you need assistance with?"
+        // Math help - EXPANDED!
+        if (lowerMessage.includes('math') || lowerMessage.includes('calculate') || lowerMessage.includes('equation') || lowerMessage.includes('algebra') || lowerMessage.includes('geometry')) {
+            const mathResponses = [
+                "I'd be happy to help with math! Feel free to ask me any math questions, and I'll do my best to help you understand. 📐",
+                "Math is my thing! What math problem can I help you solve? Whether it's algebra, geometry, or calculus - bring it on! 🧮",
+                "Got a math question? I'm here to break it down for you step by step! What do you need? 📊",
+                "Math help coming right up! What do you need assistance with? Numbers, equations, or something else? 🔢",
+                "Love a good math challenge! I'm ready to help you tackle it. What's the problem? 💡",
+                "Let's solve some math together! Tell me what you're working on and I'll help explain it. 🎯"
             ];
-            return this.getRandomResponse(responses);
+            return this.getRandomResponse(mathResponses);
         }
 
         // Science questions
